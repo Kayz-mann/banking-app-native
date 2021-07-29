@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://kayode:tetraoxochamber4@cluster0.d1mbn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "bartersecret": "barter_secret"
+}
