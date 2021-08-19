@@ -26,7 +26,11 @@
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "build": {
+        "babel": {
+          "include": ["react-native-keyboard-aware-scroll-view"]
+        }
+      }
     }
   }
 }

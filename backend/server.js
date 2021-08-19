@@ -5,14 +5,22 @@ const mongoose = require('mongoose')
 const config = require('config')
 const morgan = require('morgan')
 const dotenv = require('dotenv')
+const cors = require('cors')
 
 
 // init app
 const app = express()
 
-
 // middleware
 app.use(express.json())
+
+const corsOptions ={
+    origin:'*', 
+    
+}
+app.use(cors(corsOptions));
+
+
 
 // load env variables
 dotenv.config({path: './config.env'})
@@ -27,6 +35,8 @@ if(process.env.NODE_ENV === "development") {
 
 // database config
 const db = config.get('mongoURI')
+
+
 
 // connect to DB
 mongoose.connect(db, 

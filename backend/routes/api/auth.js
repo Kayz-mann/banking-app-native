@@ -30,7 +30,7 @@ router.post("/", (req, res) => {
         }
         jwt.sign(
             {id: user.id},
-            config.get("bartersecret"),
+            config.get("barter_secret"),
             {expiresIn: 3600},
             (err, token) => {
                 if (err) throw err;
