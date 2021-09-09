@@ -13,6 +13,7 @@ const Signup = ({navigation}) => {
   const [userRef, setUserRef] = useState("")
   const [password, setPassword] = useState("")
   
+  const {navigate} = navigation
   const dispatch = useDispatch();
 
   const onSubmit = () => {

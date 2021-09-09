@@ -52,6 +52,7 @@ export default (state = initialState, {type, payload}) => {
         isLoading: false,
         logLoading: false,
         account_balance: payload.user.account_balance,
+        account_number: payload.user.account_number,
       };
     case LOGOUT_SUCCESS:
     case LOGIN_FAIL:

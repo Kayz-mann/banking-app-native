@@ -4,6 +4,7 @@ const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const config = require('config')
 
+
 // User model
 const User = require("../../model/User")
 
@@ -30,7 +31,7 @@ router.post("/", (req, res) => {
         }
         jwt.sign(
             {id: user.id},
-            config.get("barter_secret"),
+            config.get("bartersecret"),
             {expiresIn: 3600},
             (err, token) => {
                 if (err) throw err;

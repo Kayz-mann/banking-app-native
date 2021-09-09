@@ -7,11 +7,12 @@ const theme = {
     primary: '#2CB9B0',
     text: 'rgba(12,13,52,0.7)',
     button: '#0C0D34',
-    color: '#0C0D34',
+    color: '#000',
     grey: 'rgba(12,13,52,0.05)',
     secondary: '#0C0D34',
     'slide.grey': '#F4F0EF',
     darkGrey: '#BABD98',
+    grey: '#dcdcdc',
     danger: '#ff0055',
     primaryLight: '#E7F9F7',
     barter: '#000',
@@ -24,7 +25,7 @@ const theme = {
   spacing: {
     s: 8,
     m: 16,
-    l: 24,
+    l: 30,
     xl: 40,
   },
   borderRadii: {
@@ -36,30 +37,30 @@ const theme = {
   textVariants: {
     hero: {
       fontSize: 80,
-      fontFamily: 'Poppins-Bold',
+      fontFamily: 'sans-serif',
       color: 'white',
       textAlign: 'center',
     },
     title1: {
       fontSize: 80,
-      fontFamily: 'Poppins-Semibold',
+      fontFamily: 'sans-serif',
       color: 'white',
     },
     title2: {
       fontSize: 24,
       lineHeight: 30,
-      fontFamily: 'Poppins-Semibold',
+      fontFamily: 'sans-serif',
       color: 'color',
     },
     body: {
       fontSize: 16,
       lineHeight: 25,
-      fontFamily: 'Poppins-Semibold',
+      fontFamily: 'sans-serif',
       color: 'text',
     },
     button: {
       fontSize: 15,
-      fontFamily: 'Poppins-Regular',
+      fontFamily: 'sans-serif',
       color: 'text',
     },
   },

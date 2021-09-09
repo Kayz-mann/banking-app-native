@@ -23,7 +23,7 @@ function Password({navigation, route}) {
       }
       dispatch(register(newUser))
     } else if (type === 'LOGIN') {
-      const {email, password} = data;
+      const {email} = data;
       dispatch(login({ email, password}))
     }
   }

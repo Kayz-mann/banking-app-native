@@ -17,7 +17,7 @@ const {width, height} = Dimensions.get('window');
 
 const slides = [
   {
-    title: 'Your Better financial Half',
+    title: 'Invest your money with us',
     body:
       'Managing Your funds should be the easiest task on your to-do-lis, so we created Barter just for you',
   },
@@ -51,8 +51,8 @@ function Onboarding({navigation}) {
 }
 
   return(
-    <SafeAreaView>
-    <Box flex={1} backgroundColor="white">
+    
+    <Box flex={1} backgroundColor="white" paddingTop="l">
       <Box height={height * 0.65}>
          <Box
           flexDirection="row"
@@ -64,9 +64,9 @@ function Onboarding({navigation}) {
              color="black"
              fontSize={30}
              fontWeight="bold"
-             textDecorationStyle="sold"
+             textDecorationStyle="solid"
              style={{marginLeft: 3}}>
-               bank app
+               konkoBelow Bank
              </Text>
          </Box>
          <Animated.ScrollView ref={scroll}
@@ -110,8 +110,11 @@ function Onboarding({navigation}) {
         </TouchableOpacity>
       </Box>
     </Box>
-    </SafeAreaView>
+  
   );
 }
 
 export default Onboarding;
+
+
+
