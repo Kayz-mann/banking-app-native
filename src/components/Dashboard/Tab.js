@@ -10,7 +10,7 @@ function Tab({text, icon, index, onPress, routeName, children}) {
       onPress(index, routeName)
     }}>
     <Box style={{ width: ICON_SIZE, height: ICON_SIZE, }}>
-       <Box style={{...StyleSheet.absoluteFill}}
+       <Box 
            justifyContent="center" 
            alignItems="center">
            {children}

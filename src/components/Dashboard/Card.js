@@ -11,32 +11,34 @@ import {styles} from "./Dashboard"
 function Card({navigation}) {
   const {navigate} = navigation;
   const onSwitch = (routeNumber, routerName) => {
-    const isCurrentRoute = routeNumber === 0 ? true : false;
+    const isCurrentRoute = routeNumber === 1 ? true : false;
     if (!isCurrentRoute) {
       navigate(routerName)
     }
   }
   
 
-  return <Box justifyContent="flex-end" flex={1}>
+  return (
+    <Box justifyContent="flex-end" flex={1} >
         <Box flex={1} paddingHorizontal="m" paddingVertical="m">
-           <Box justifyContent="space-between" alignItems="center" flexDirection="row">
+           <Box justifyContent="space-between" alignItems="center" flexDirection="column">
              <Box></Box>
              <TouchableOpacity>
-               <Box width={20} borderRadius="s" backgroundColor="primaryLight" justifyContent="center" paddingVertical="s" alignItems="center">
+               <Box width={120} borderRadius="s" backgroundColor="primaryLight" justifyContent="center" paddingVertical="s" alignItems="center">
                  <Text variant="body" >New Card</Text>
                </Box>
              </TouchableOpacity>
-             <Box backgroundColor="xl">
-               <Box backgroundColor="white"
-               borderRadius="l"
-               height={220}
-               paddingVertical="l">
+             <Box marginTop="xl">
+               <Box backgroundColor="barter"
+                  borderRadius="l"
+                  height={220}
+                  paddingVertical="l"
+               >
                  <Box flexDirection="row"
                   alignItems="center"
                   justifyContent="space-between"
                   paddingRight="l">
-                   <Box backgroundColor="white" borderTopRightRadius="l" borderBottomRightRadius="l"
+                   <Box backgroundColor="barter4" borderTopRightRadius="l" borderBottomRightRadius="l"
                    paddingLeft="m" paddingRight="m">
                      <Text variant="body" color="white" fontWeight="400">
                        Limited use card
@@ -50,7 +52,7 @@ function Card({navigation}) {
                    <Text variant="body" color="white" fontSize={12}>
                      JJ BRONXTON
                    </Text>
-                   <Text variant="body" color='white' fontSize={25}>
+                   <Text variant="body" color='white' fontSize={25} marginTop="s">
                      413 7225 4474 0532
                    </Text>
                  </Box>
@@ -77,7 +79,7 @@ function Card({navigation}) {
              </Box>
            </Box>
         </Box>
-        <Box height={70} backgroundColor="danger">
+        <Box height={270} flexDirection="row" width={520} backgroundColor="grey">
           <Box style={{...styles.tabs}}>
             {menus.map(({icon, text, routeName}, index) => (
               <Box {...{index}} style={{...styles.tab}} key={index}>
@@ -89,7 +91,10 @@ function Card({navigation}) {
             ))}
           </Box>
     </Box>
-  </Box>;
+  </Box>
+  )
 }
 
 export default Card;
+
+

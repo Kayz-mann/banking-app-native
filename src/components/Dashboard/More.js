@@ -89,18 +89,18 @@ function More({navigation}) {
       </Box>
       </Box>
       
-      <Box height={70} backgroundColor="danger">
-      <Box style={{...styles.tabs}}>
-        {menus.map(({icon, text, routeName}, index) => (
-          <Box {...{index}} style={{...styles.tab}} key={index}>
-            <Tab 
-             onPress={(index, route) => onSwitch(index, route)} {...{index, text, routeName}}>
-               {icon}
-             </Tab>
+      <Box height={270} flexDirection="row" width={520} backgroundColor="grey">
+          <Box style={{...styles.tabs}}>
+            {menus.map(({icon, text, routeName}, index) => (
+              <Box {...{index}} style={{...styles.tab}} key={index}>
+                <Tab 
+                onPress={(index, route) => onSwitch(index, route)} {...{index, text, routeName}}>
+                  {icon}
+                </Tab>
+              </Box>
+            ))}
           </Box>
-        ))}
-      </Box>
-    </Box>
+       </Box>
     </Box>
   );
 }

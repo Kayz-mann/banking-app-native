@@ -1,5 +1,5 @@
 import React from 'react';
-import {Dimensions, TouchableOpacity} from 'react-native';
+import {Dimensions, ImageBackground, TouchableOpacity} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import theme, {Box, Text} from '../theme';
@@ -7,6 +7,10 @@ import {Container, Content} from 'native-base';
 import {menus, styles} from './Dashboard';
 import Tab from './Tab';
 import { useSelector } from 'react-redux';
+import { ScrollView, TapGestureHandler } from 'react-native-gesture-handler';
+import { Entypo } from '@expo/vector-icons';
+import { pattern } from '../../../assets/images';
+
 
 const {width, height} = Dimensions.get('window');
 
@@ -53,11 +57,12 @@ function Transactions({navigation}) {
   const {navigate} = navigation
 
   const onSwitch = (routeNumber, routerName) => {
-    const isCurrentRoute = routeNumber === 0 ? true : false;
+    const isCurrentRoute = routeNumber === 2 ? true : false;
     if (!isCurrentRoute) {
       navigate(routerName)
     }
   }
+
 
   // User account
   const {account_balance} = useSelector((state) => state.auth)
@@ -83,7 +88,7 @@ function Transactions({navigation}) {
         </Box>
         <Box backgroundColor="black" paddingHorizontal="m" paddingVertical="m" marginTop="s" borderRadius="m">
               <Box flexDirection="row" justifyContent="space-between" alignItems="center">
-                  <Text variant="title1" color="#fff" fontSize={30}>
+                  <Text variant="title1" color="white" fontSize={30}>
                     {account_balance}
                     <Text fontSize={12} marginRight="m">00</Text>
                   </Text>
@@ -92,7 +97,7 @@ function Transactions({navigation}) {
                   borderRadius="s"
                   justifyContent="center" alignItems="center">
                    <Text textAlign="center" variant="title1" 
-                   fontSize={15} color="#fff">NGN</Text>
+                   fontSize={15} color="white">NGN</Text>
                     <Box justifyContent="center" alignItems="center">
                        <MaterialIcon name="arrow-drop-down" size={18} color="black" />
                     </Box>
@@ -104,75 +109,14 @@ function Transactions({navigation}) {
                     backgroundColor="darkGrey"
                     style={{paddingHorizontal: 5, paddingVertical: 7}}
                     borderRadius="s" alignItems="center" justifyContent="center" marginTop="s">
-                    <Text textAlign="center" variant="title1" fontSize={15} color="black"></Text>
+                    <Text textAlign="center" variant="title1" fontSize={15} color="black">Add Money</Text>
                  </Box>
               </Box>
         </Box>
     </Box>
-    <Container>
-      <Content style={{paddingBottom:10}} showsVerticalScrollIndicator={false} >
-        <Box flexDirection="row" flexWrap="wrap" justifyContent="center">
-          {actions.map(({title, icon, color, cta}) => (
-            <Box
-              style={{backgroundColor: color}}
-              key={title}
-              padding="m"
-              width={width/2.3}
-              height={120}
-              margin="s"
-              borderRadius="m">
-              <TouchableOpacity onPress={() => onCTA(cta)}>
-                <Box style={{borderRadius: 100}}
-                paddingVertical="m"
-                paddingHorizontal="s"
-                backgroundColor="white"
-                width={50}
-                justifyContent="center"
-                marginVertical="s">
-                  {icon}
-                </Box>
-                <Text variant="title2" fontSize={13} fontWeight="700"></Text>
-              </TouchableOpacity>
-            </Box>
-          ))}
-        </Box>
-        <TapGestureHandler>
-          <Box paddingHorizontal="m" marginBottom="l">
-            <Box marginTop="l" backgroundColor="white" paddingVertical="1" borderRadius="m"
-            height={150} justifyContent="center" alignItems="center" paddingHorizontal="l">
-              <Entypo name="circle-with-plus" size={35} color="black" />
-              <Text variant="body" textAlign="center" paddingHorizontal="l" marginTop="s">
-                Tap here to create your dollar card now
-              </Text>
-            </Box>
-          </Box>
-        </TapGestureHandler>
-           <Box paddingHorizontal="m" marginBottom="xl">
-             <ImageBackground source={pattern} 
-             style={{height: 180, width: '100%', paddingTop: 50}} >
-               <Box justifyContent="center" alignItems="center" paddingLeft="l" paddingRight="xl" borderRadius="l">
-                 <Text variant="title2" color="white" fontWeight="700">
-                   Send a redeemable gift card to family & friends anywhere in the world
-                 </Text>
-               </Box>
-             </ImageBackground>
-           </Box>
-      </Content>
-    </Container>
-    <Box height={70} backgroundColor="danger">
-      <Box style={{...styles.tabs}}>
-        {menus.map(({icon, text, routeName}, index) => (
-          <Box {...{index}} style={{...styles.tab}} key={index}>
-            <Tab 
-             onPress={(index, route) => onSwitch(index, route)} {...{index, text, routeName}}>
-               {icon}
-             </Tab>
-          </Box>
-        ))}
-      </Box>
-    </Box>
-    <Container>
-      <Content style={{paddingBottom: 10}}
+    <ScrollView style={{height: 350}}>
+   <Container>
+      <Content style={{paddingBottom: 5}}
       showsVerticalScrollIndicator={false}>
         <Box>
         <Box flexDirection="row" justifyContent="space-between" alignItems="center">
@@ -193,7 +137,7 @@ function Transactions({navigation}) {
           </Box>
         </Box>
         <Box paddingVertical="m">
-           {!transaction.length > 0 ? (<Text textAlign="center" variant="">No Transactions made recently</Text>
+           {!transactions.length > 0 ? (<Text textAlign="center" variant="">No Transactions made recently</Text>
            ):(
              <Box>
                {transactions.map(({name, type, price, purpose, date}, index) => (
@@ -214,6 +158,20 @@ function Transactions({navigation}) {
         </Box>
       </Content>
     </Container>
+    </ScrollView>
+    <Box height={170} backgroundColor="grey" flexDirection="row" >
+              <Box style={{...styles.tabs}}>
+                {menus.map(({icon, text, routeName}, index) => (
+                  <Box {...{index}} style={{...styles.tab}} key={index}>
+                    <Tab 
+                     style={{...styles.tabs}}
+                       onPress={(index, route) => onSwitch(index, route)} {...{index, text, routeName}}>
+                      {icon}
+                    </Tab>
+                  </Box>
+                ))}
+              </Box>
+      </Box> 
   </Box>
   );
 }

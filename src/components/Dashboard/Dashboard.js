@@ -135,8 +135,8 @@ function Dashboard({navigation}) {
               </Box>
         </Box>
     </Box>
-<View style={{height: 400}} >
-<ScrollView >
+
+<ScrollView  style={{height: 400}}>
 <Container >
       <Content style={{paddingBottom:theme.spacing.xl}} showsVerticalScrollIndicator={false} >
        <Box flexDirection="column" flexWrap="wrap" justifyContent="center" onStartShouldSetResponder={() => true} >
@@ -185,7 +185,7 @@ function Dashboard({navigation}) {
               </Box>
             </Box>
              </TapGestureHandler> 
-           <Box paddingHorizontal="m" >
+           <Box paddingHorizontal="m" marginBottom="xl" >
              <ImageBackground source={pattern} 
              style={{height: 100, width: '100%'}} >
                <Box justifyContent="center" alignItems="center" paddingLeft="l" paddingRight="xl" borderRadius="l">
@@ -199,19 +199,21 @@ function Dashboard({navigation}) {
     </Container>
    
     </ScrollView> 
-    <Box height={70} backgroundColor="grey" >
-              <Box style={{...styles.tabRoute}}>
+    
+    
+    <Box height={70} backgroundColor="grey" flexDirection="row" >
+              <Box style={{...styles.tabs}}>
                 {menus.map(({icon, text, routeName}, index) => (
-                  <Box {...{index}} style={{...styles.tabRoute}} key={index}>
+                  <Box {...{index}} style={{...styles.tab}} key={index}>
                     <Tab 
+                     style={{...styles.tabs}}
                        onPress={(index, route) => onSwitch(index, route)} {...{index, text, routeName}}>
                       {icon}
                     </Tab>
                   </Box>
                 ))}
               </Box>
-            </Box> 
-    </View> 
+      </Box> 
  </Box>
   
   );
@@ -293,25 +295,22 @@ function Dashboard({navigation}) {
 export default Dashboard;
 
 export const styles = StyleSheet.create({
+ 
   tabs: {
-    
     alignItems: 'center',
     backgroundColor: 'grey',
-    justifyContent: 'flex-start',
-    position: 'fixed',
-    paddingTop: 0,
+    
+    
   },
   tab: {
-    width: 30,
-    height: 40,
-    flexDirection: 'column',
+    width: SEGMENT,
+    height: ICON_SIZE + PADDING * 2,
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center'
   },
   
-  tabRoute: {
-    
-  }
+  
 
 })
 

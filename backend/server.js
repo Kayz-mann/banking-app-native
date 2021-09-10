@@ -51,6 +51,10 @@ app.get("/", (req, res) => res.send("We are on homepage"))
 app.use("/api/users", require("./routes/api/users"))
 app.use("/api/auth", require("./routes/api/auth"))
 
+
+// Web SOcket
+require("./middleware/socket")(app, io, db);
+
 const port = process.env.PORT || 5000;
 server.listen(port, () => `Server started on port ${port}`)
 

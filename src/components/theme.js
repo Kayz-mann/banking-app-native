@@ -14,7 +14,7 @@ const theme = {
     darkGrey: '#BABD98',
     grey: '#dcdcdc',
     danger: '#ff0055',
-    primaryLight: '#E7F9F7',
+    primaryLight: 'blue',
     barter: '#000',
     barter2: '#FFCB60',
     barter3: '#F8F6AF',
